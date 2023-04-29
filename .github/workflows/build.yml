@@ -24,7 +24,7 @@ jobs:
       - name: Deploy
         run: railway up
         env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          RAILWAY_TOKEN: ${{ secrets.CICDASSIGNMENTTESTING }}
 
       - name: Send GitHub Action trigger data to Slack workflow
         id: slack
