@@ -62,6 +62,30 @@ jobs:
                       "value": "https://${{ secrets.RAILWAY_LINK }}.up.railway.app/",
                       "short": false
                     }
+                  ],
+                  "color": "#36a64f",
+                  "footer": "GitHub Actions",
+                  "footer_icon": "https://github.githubassets.com/favicon.ico",
+                  "ts": ${{ github.run_number }}
+                },
+                {
+                  "blocks": [
+                    {
+                      "type": "section",
+                      "text": {
+                        "type": "mrkdwn",
+                        "text": "<https://${{ secrets.RAILWAY_LINK }}.up.railway.app/|${{ secrets.RAILWAY_LINK }}.up.railway.app>"
+                      },
+                      "accessory": {
+                        "type": "button",
+                        "text": {
+                          "type": "plain_text",
+                          "text": "Go"
+                        },
+                        "url": "https://${{ secrets.RAILWAY_LINK }}.up.railway.app/",
+                        "style": "primary"
+                      }
+                    }
                   ]
                 }
               ]
