@@ -62,7 +62,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "https://${{ secrets.RAILWAY_LINK }}.up.railway.app/",
+                      "text": "https://${{ secrets.RAILWAY_LINK }}.up.railway.app/"
                     }
                   ],
                   "attachments": [
@@ -81,8 +81,8 @@ jobs:
                     }
                   ]
                 }
+              ]
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-
