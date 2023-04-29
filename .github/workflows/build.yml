@@ -59,24 +59,28 @@ jobs:
                     {
                       "type": "mrkdwn",
                       "text": "*Repository:*\n${{ github.event.repository.html_url }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "https://${{ secrets.RAILWAY_LINK }}.up.railway.app/",
                     }
                   ],
-                  "accessory": {
-                    "type": "button",
-                    "text": {
-                      "type": "plain_text",
-                      "text": "Go"
-                    },
-                    "url": "https://${{ secrets.RAILWAY_LINK }}.up.railway.app/",
-                    "style": "primary"
-                  }
+                  "attachments": [
+                    {
+                      "actions": [
+                        {
+                          "type": "button",
+                          "text": {
+                            "type": "plain_text",
+                            "text": "GO"
+                          },
+                          "style": "primary",
+                          "url": "https://${{ secrets.RAILWAY_LINK }}.up.railway.app/"
+                        }
+                      ]
+                    }
+                  ]
                 }
-              ],
-              "attachments": [
-                {
-                  "color": "#36a64f"
-                }
-              ]
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
