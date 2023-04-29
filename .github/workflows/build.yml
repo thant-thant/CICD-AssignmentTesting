@@ -33,7 +33,14 @@ jobs:
           # For posting a rich message using Block Kit
           payload: |
             {
-              "text": "Deployment results",
+              {
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "DipSA 56 CI/CD Submission",
+                  "emoji": true
+                }
+              },
               "attachments": [
                 {
                   "color": "#36a64f",
@@ -45,21 +52,29 @@ jobs:
                           "type": "mrkdwn",
                           "text": "*Name:*\nThant Thiri Shwe"
                         },
-                        {
+                         {
                           "type": "mrkdwn",
-                          "text": "*Matriculation Number:*\nE1112893"
+                          "text": "*Email:*\ne1112893@u.nus.edu"
                         },
                         {
                           "type": "mrkdwn",
-                          "text": "*Email:*\ne1112893@u.nus.edu"
+                          "text": "*Matriculation:*\nE1112893"
                         },
                         {
                           "type": "mrkdwn",
                           "text": "*Repository:*\n${{ github.event.repository.html_url }}"
                         },
                         {
-                          "type": "mrkdwn",
-                          "text": "*Deployment URL:*\n<https://${{ secrets.RAILWAY_LINK }}.up.railway.app/|${{ secrets.RAILWAY_LINK }}.up.railway.app>"
+                          "accessory": 
+                            {
+                              "type": "button",
+                              "text": {
+                                "type": "plain_text",
+                                "text": "Go"
+                              },
+                              "url": "https://${{ secrets.RAILWAY_LINK }}.up.railway.app/",
+                              "style": "primary"
+                          }
                         }
                       ]
                     }
