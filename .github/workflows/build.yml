@@ -67,7 +67,7 @@ jobs:
                   "text": {
                     "type": "mrkdwn",
                     "text": "https://${{ secrets.RAILWAY_LINK }}.up.railway.app/"
-                  },
+                  }, 
                   "accessory": {
                     "type": "button",
                     "text": {
