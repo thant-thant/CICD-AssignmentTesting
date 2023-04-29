@@ -32,56 +32,52 @@ jobs:
         with:
           payload: |
             {
-              "blocks": [
-                {
-                  "type": "header",
-                  "text": {
-                    "type": "plain_text",
-                    "text": "DipSA 56 CI/CD Submission",
-                    "emoji": true
-                  }
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Name:*\nThant Thiri Shwe"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Email:*\ne1112893@u.nus.edu"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Matriculation:*\nE1112893"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Repository:*\n${{ github.event.repository.html_url }}"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "https://${{ secrets.RAILWAY_LINK }}.up.railway.app/"
-                    }
-                  ],
-                  "attachments": [
-                    {
-                      "actions": [
-                        {
-                          "type": "button",
-                          "text": {
-                            "type": "plain_text",
-                            "text": "GO"
-                          },
-                          "style": "primary",
-                          "url": "https://${{ secrets.RAILWAY_LINK }}.up.railway.app/"
-                        }
-                      ]
-                    }
-                  ]
+            "blocks": [
+              {
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "DipSA 56 CI/CD Submission",
+                  "emoji": true
                 }
-              ]
+              },
+              {
+                "type": "section",
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Name:*\nThant Thiri Shwe"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Email:*\ne1112893@u.nus.edu"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Matriculation:*\nE1112893"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Repository:*\n${{ github.event.repository.html_url }}"
+                  }
+                ]
+              }
+            ],
+            "attachments": [
+              {
+                "actions": [
+                  {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "GO"
+                    },
+                    "style": "primary",
+                    "url": "https://${{ secrets.RAILWAY_LINK }}.up.railway.app/"
+                  }
+                ]
+              }
+            ]
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
