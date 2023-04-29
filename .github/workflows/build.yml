@@ -30,59 +30,55 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         with:
-          # For posting a rich message using Block Kit
           payload: |
             {
-              {
-                "type": "header",
-                "text": {
-                  "type": "plain_text",
-                  "text": "DipSA 56 CI/CD Submission",
-                  "emoji": true
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "DipSA 56 CI/CD Submission",
+                    "emoji": true
+                  }
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Name:*\nThant Thiri Shwe"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Email:*\ne1112893@u.nus.edu"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Matriculation:*\nE1112893"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Repository:*\n${{ github.event.repository.html_url }}"
+                    }
+                  ],
+                  "accessory": {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "Go"
+                    },
+                    "url": "https://${{ secrets.RAILWAY_LINK }}.up.railway.app/",
+                    "style": "primary"
+                  }
                 }
-              },
+              ],
               "attachments": [
                 {
-                  "color": "#36a64f",
-                  "blocks": [
-                    {
-                      "type": "section",
-                      "fields": [
-                        {
-                          "type": "mrkdwn",
-                          "text": "*Name:*\nThant Thiri Shwe"
-                        },
-                         {
-                          "type": "mrkdwn",
-                          "text": "*Email:*\ne1112893@u.nus.edu"
-                        },
-                        {
-                          "type": "mrkdwn",
-                          "text": "*Matriculation:*\nE1112893"
-                        },
-                        {
-                          "type": "mrkdwn",
-                          "text": "*Repository:*\n${{ github.event.repository.html_url }}"
-                        },
-                        {
-                          "accessory": 
-                            {
-                              "type": "button",
-                              "text": {
-                                "type": "plain_text",
-                                "text": "Go"
-                              },
-                              "url": "https://${{ secrets.RAILWAY_LINK }}.up.railway.app/",
-                              "style": "primary"
-                          }
-                        }
-                      ]
-                    }
-                  ]
+                  "color": "#36a64f"
                 }
               ]
             }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+              env:
+                SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+                SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
