@@ -26,67 +26,48 @@ jobs:
         env:
           RAILWAY_TOKEN: ${{ secrets.CICDASSIGNMENTTESTING }}
 
-      - name: Send GitHub Action to Slack 
+      - name: Send custom JSON data to Slack workflow
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
+          # For posting a rich message using Block Kit
           payload: |
             {
+              "text": "Deployment results",
               "attachments": [
                 {
-                  "fields": [
-                    {
-                      "title": "Name",
-                      "value": "Thant Thiri Shwe",
-                      "short": true
-                    },
-                    {
-                      "title": "Matriculation Number",
-                      "value": "E1112893",
-                      "short": true
-                    },
-                    {
-                      "title": "Email",
-                      "value": "e1112893@u.nus.edu",
-                      "short": true
-                    },
-                    {
-                      "title": "Repository",
-                      "value": "${{ github.event.repository.html_url }}",
-                      "short": false
-                    },
-                    {
-                      "title": "Deployment URL",
-                      "value": "https://${{ secrets.RAILWAY_LINK }}.up.railway.app/",
-                      "short": false
-                    }
-                  ],
                   "color": "#36a64f",
-                  "footer": "GitHub Actions",
-                  "footer_icon": "https://github.githubassets.com/favicon.ico",
-                  "ts": ${{ github.run_number }}
-                },
-                {
                   "blocks": [
                     {
                       "type": "section",
-                      "text": {
-                        "type": "mrkdwn",
-                        "text": "<https://${{ secrets.RAILWAY_LINK }}.up.railway.app/|${{ secrets.RAILWAY_LINK }}.up.railway.app>"
-                      },
-                      "accessory": {
-                        "type": "button",
-                        "text": {
-                          "type": "plain_text",
-                          "text": "Go"
+                      "fields": [
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Name:*\nThant Thiri Shwe"
                         },
-                        "url": "https://${{ secrets.RAILWAY_LINK }}.up.railway.app/",
-                        "style": "primary"
-                      }
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Matriculation Number:*\nE1112893"
+                        },
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Email:*\ne1112893@u.nus.edu"
+                        },
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Repository:*\n${{ github.event.repository.html_url }}"
+                        },
+                        {
+                          "type": "mrkdwn",
+                          "text": "*Deployment URL:*\n<https://${{ secrets.RAILWAY_LINK }}.up.railway.app/|${{ secrets.RAILWAY_LINK }}.up.railway.app>"
+                        }
+                      ]
                     }
                   ]
                 }
               ]
             }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
