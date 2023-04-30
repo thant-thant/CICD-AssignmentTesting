@@ -46,19 +46,19 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Name:*\nThant Thiri Shwe"
+                      "text": "*Name:*Thant Thiri Shwe"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Email:*\ne1112893@u.nus.edu"
+                      "text": "*Email:*e1112893@u.nus.edu"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Matriculation:*\A0269510E"
+                      "text": "*Matriculation:*A0269510E"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Repository:*\n${{ github.event.repository.html_url }}"
+                      "text": "*Repository:*${{ github.event.repository.html_url }}"
                     }
                   ]
                 },
