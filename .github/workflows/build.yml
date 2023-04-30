@@ -46,19 +46,19 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Name:*Thant Thiri Shwe"
+                      "text": "*Name:*\nThant Thiri Shwe"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Email:*e1112893@u.nus.edu"
+                      "text": "*Email:*\ne1112893@u.nus.edu"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Matriculation:*A0269510E"
+                      "text": "*Matriculation:*\nA0269510E"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Repository:*${{ github.event.repository.html_url }}"
+                      "text": "*Repository:*\n${{ github.event.repository.html_url }}"
                     }
                   ]
                 },
@@ -81,5 +81,5 @@ jobs:
               ]
             }
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_SUBMISSION_WEBHOOK_URL }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
